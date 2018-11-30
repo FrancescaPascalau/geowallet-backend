@@ -11,6 +11,12 @@
     <name>Data Module</name>
     <description>Persistence Layer for Area and Price Determination.</description>
 
+    <parent>
+        <groupId>francesca.pascalau</groupId>
+        <artifactId>thesis-backend-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
