@@ -5,17 +5,17 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
-@Table(schema = "public", name = "COORDINATES")
+@Table(schema = "public", name = "`COORDINATES`")
 public class Coordinate {
 
     @Id
     @Column(name = "ID_COORDINATE")
     private UUID id;
 
-    @Column(name = "LATITUDE")
+    @Column(name = "LATITUDE", precision = 19, scale = 7)
     private BigDecimal latitude;
 
-    @Column(name = "LONGITUDE")
+    @Column(name = "LONGITUDE", precision = 19, scale = 7)
     private BigDecimal longitude;
 
     @ManyToOne

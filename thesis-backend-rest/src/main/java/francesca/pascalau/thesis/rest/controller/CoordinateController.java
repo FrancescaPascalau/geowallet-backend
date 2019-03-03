@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+//JSON Response
 @RestController
 @RequestMapping("/v1/coordinates")
 public class CoordinateController {
@@ -51,7 +52,7 @@ public class CoordinateController {
         return ResponseEntity.ok("All rows deleted.");
     }
 
-    @RequestMapping(value = "findAll", method = RequestMethod.POST)
+    @RequestMapping(value = "findAll", method = RequestMethod.GET)
     public ResponseEntity<List<Coordinate>> findAll() {
         return ResponseEntity.ok(coordinateService.findAll());
     }
@@ -61,6 +62,7 @@ public class CoordinateController {
         return ResponseEntity.ok(coordinateService.findById(id));
     }
 
+    //JSON Request from user
     @RequestMapping(value = "saveAll", method = RequestMethod.POST)
     public ResponseEntity<List<Coordinate>> saveAll(@RequestBody List<Coordinate> listCoordinates) {
         return ResponseEntity.ok(coordinateService.saveAll(listCoordinates));
@@ -70,6 +72,7 @@ public class CoordinateController {
     public ResponseEntity<Optional<Coordinate>> findByLatitude(@PathVariable("lat") BigDecimal latitude) {
         return ResponseEntity.ok(coordinateService.findByLatitude(latitude));
     }
+
     @RequestMapping(value = "deleteByLatitude/{lat}", method = RequestMethod.DELETE)
     public ResponseEntity deleteByLatitude(@PathVariable("lat") BigDecimal latitude) {
         coordinateService.deleteByLatitude(latitude);
@@ -80,6 +83,7 @@ public class CoordinateController {
     public ResponseEntity<Optional<Coordinate>> findByLongitude(@PathVariable("long") BigDecimal longitude) {
         return ResponseEntity.ok(coordinateService.findByLongitude(longitude));
     }
+
     @RequestMapping(value = "deleteByLongitude/{long}", method = RequestMethod.DELETE)
     public ResponseEntity deleteByLongitude(@PathVariable("long") BigDecimal longitude) {
         coordinateService.deleteByLongitude(longitude);

@@ -68,6 +68,10 @@ public class CoordinateServiceImpl implements CoordinateService {
     }
 
     public List<Coordinate> saveAll(List<Coordinate> listCoordinates) {
+        listCoordinates.forEach(coordinate -> {
+            UUID id = UUID.randomUUID();
+            coordinate.setId(id);
+        });
         return coordinateRepository.saveAll(listCoordinates);
     }
 

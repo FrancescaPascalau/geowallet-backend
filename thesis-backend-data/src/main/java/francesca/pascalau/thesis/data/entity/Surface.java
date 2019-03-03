@@ -8,14 +8,14 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
-@Table(schema = "public", name = "SURFACES")
+@Table(schema = "public", name = "`SURFACES`")
 public class Surface {
 
     @Id
     @Column(name = "ID_SURFACE")
     private UUID id_surface;
 
-    @Column(name = "AREA")
+    @Column(name = "AREA", precision = 19, scale = 7)
     private BigDecimal area;
 
     public Surface() {
