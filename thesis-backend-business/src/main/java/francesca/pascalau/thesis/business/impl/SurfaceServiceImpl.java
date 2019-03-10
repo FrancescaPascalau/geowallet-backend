@@ -18,10 +18,11 @@ public class SurfaceServiceImpl implements SurfaceService {
     @Autowired
     private SurfaceRepository surfaceRepository;
 
-    public void addSurface(BigDecimal area) {
+    public UUID addSurface(BigDecimal area) {
         UUID id = UUID.randomUUID();
         Surface surface = new Surface(id, area);
         surfaceRepository.save(surface);
+        return id;
     }
 
     public List<Surface> getAllSurfaces() {

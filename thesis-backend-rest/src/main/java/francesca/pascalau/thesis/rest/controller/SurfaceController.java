@@ -24,9 +24,8 @@ public class SurfaceController {
     }
 
     @RequestMapping(value = "addArea/{area}", method = RequestMethod.POST)
-    public ResponseEntity addArea(@PathVariable("area")BigDecimal area){
-        surfaceService.addSurface(area);
-        return ResponseEntity.ok("Area inserted.");
+    public ResponseEntity<UUID> addArea(@PathVariable("area") BigDecimal area) {
+        return ResponseEntity.ok(surfaceService.addSurface(area));
     }
 
     @RequestMapping(value = "countRows", method = RequestMethod.GET)

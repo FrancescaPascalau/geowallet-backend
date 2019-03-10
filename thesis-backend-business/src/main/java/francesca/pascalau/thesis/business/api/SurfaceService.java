@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface SurfaceService {
 
-    void addSurface(BigDecimal area);
+    UUID addSurface(BigDecimal area);
 
     List<Surface> getAllSurfaces();
 

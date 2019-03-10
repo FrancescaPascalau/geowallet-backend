@@ -1,17 +1,16 @@
 package francesca.pascalau.thesis.data.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
 @Table(schema = "public", name = "`SURFACES`")
-public class Surface {
+public class Surface implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_SURFACE")
     private UUID id_surface;
 

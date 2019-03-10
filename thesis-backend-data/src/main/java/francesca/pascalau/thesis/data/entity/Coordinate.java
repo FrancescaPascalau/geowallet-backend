@@ -9,6 +9,7 @@ import java.util.UUID;
 public class Coordinate {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_COORDINATE")
     private UUID id;
 
