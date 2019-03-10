@@ -18,7 +18,13 @@ public class SurfaceServiceImpl implements SurfaceService {
     @Autowired
     private SurfaceRepository surfaceRepository;
 
-    public UUID addSurface(BigDecimal area) {
+
+    @Override
+    public Surface saveSurface(Surface surface) {
+        return surfaceRepository.save(surface);
+    }
+
+    public UUID addArea(BigDecimal area) {
         UUID id = UUID.randomUUID();
         Surface surface = new Surface(id, area);
         surfaceRepository.save(surface);

@@ -18,6 +18,11 @@ public class SurfaceController {
     @Autowired
     SurfaceService surfaceService;
 
+    @RequestMapping(value = "save", method = RequestMethod.POST)
+    public ResponseEntity<Surface> saveSurface(@RequestBody Surface surface) {
+        return ResponseEntity.ok(surfaceService.saveSurface(surface));
+    }
+
     @RequestMapping(value = "getArea", method = RequestMethod.GET)
     public ResponseEntity<List<Surface>> getResponse(){
         return ResponseEntity.ok(surfaceService.getAllSurfaces());
@@ -25,7 +30,7 @@ public class SurfaceController {
 
     @RequestMapping(value = "addArea/{area}", method = RequestMethod.POST)
     public ResponseEntity<UUID> addArea(@PathVariable("area") BigDecimal area) {
-        return ResponseEntity.ok(surfaceService.addSurface(area));
+        return ResponseEntity.ok(surfaceService.addArea(area));
     }
 
     @RequestMapping(value = "countRows", method = RequestMethod.GET)

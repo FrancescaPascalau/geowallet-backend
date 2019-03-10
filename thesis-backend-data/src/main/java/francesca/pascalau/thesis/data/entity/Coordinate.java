@@ -21,15 +21,16 @@ public class Coordinate {
 
     @ManyToOne
     @JoinColumn(name = "ID_SURFACE", referencedColumnName = "ID_SURFACE")
-    private Surface id_surface;
+    private Surface surface;
 
-    public Coordinate(){};
+    public Coordinate() {
+    }
 
-    public Coordinate(UUID id, BigDecimal latitude, BigDecimal longitude, Surface id_surface) {
+    public Coordinate(UUID id, BigDecimal latitude, BigDecimal longitude, Surface surface) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.id_surface = id_surface;
+        this.surface = surface;
     }
 
     public UUID getId() {
@@ -56,12 +57,13 @@ public class Coordinate {
         this.longitude = longitude;
     }
 
-    public Surface getId_surface() {
-        return id_surface;
-    }
+//    public Surface getSurface() {
+//        return surface;
+//    }
 
-    public void setId_surface(Surface id_surface) {
-        this.id_surface = id_surface;
+    public void setSurface(Surface surface) {
+        if (this.surface != null) return;
+        this.surface = surface;
     }
 
     @Override
@@ -70,7 +72,7 @@ public class Coordinate {
                 "id=" + id +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
-                ", id_surface=" + id_surface +
+                ", surface=" + surface +
                 '}';
     }
 }
