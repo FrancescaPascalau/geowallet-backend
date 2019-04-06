@@ -14,7 +14,7 @@ public class Surface implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_SURFACE")
-    private UUID id_surface;
+    private UUID idSurface;
 
     @Column(name = "AREA", precision = 19, scale = 7)
     private BigDecimal area;
@@ -22,21 +22,25 @@ public class Surface implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "surface")
     private Set<Coordinate> coordinates;
 
+    @ManyToOne(targetEntity = Price.class)
+    @JoinColumn(name = "ID_PRICE", referencedColumnName = "ID_PRICE")
+    private Price price;
+
     public Surface() {
     }
 
-    public Surface(UUID id_surface, BigDecimal area) {
-        this.id_surface = id_surface;
+    public Surface(UUID idSurface, BigDecimal area) {
+        this.idSurface = idSurface;
         this.area = area;
         this.coordinates = Collections.emptySet();
     }
 
-    public UUID getId_surface() {
-        return id_surface;
+    public UUID getIdSurface() {
+        return idSurface;
     }
 
-    public void setId_surface(UUID id_surface) {
-        this.id_surface = id_surface;
+    public void setIdSurface(UUID idSurface) {
+        this.idSurface = idSurface;
     }
 
     public BigDecimal getArea() {
@@ -56,11 +60,20 @@ public class Surface implements Serializable {
         this.coordinates = coordinates;
     }
 
+    public Price getPrice() {
+        return price;
+    }
+
+    public void setPrice(Price price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "Surface{" +
-                "id_surface=" + id_surface +
+                "idSurface=" + idSurface +
                 ", area=" + area +
+                ", price=" + price +
                 '}';
     }
 }

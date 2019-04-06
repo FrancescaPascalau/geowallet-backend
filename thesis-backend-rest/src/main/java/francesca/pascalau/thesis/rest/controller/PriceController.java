@@ -49,12 +49,12 @@ public class PriceController {
         return ResponseEntity.ok("All rows deleted.");
     }
 
-    @RequestMapping(value = "findAll", method = RequestMethod.POST)
+    @RequestMapping(value = "findAll", method = RequestMethod.GET)
     public ResponseEntity<List<Price>> findAll() {
         return ResponseEntity.ok(priceService.findAll());
     }
 
-    @RequestMapping(value = "findByType/{type}", method = RequestMethod.POST)
+    @RequestMapping(value = "findByType/{type}", method = RequestMethod.GET)
     public ResponseEntity<Optional<Price>> findBy(@PathVariable("type") String type) {
         return ResponseEntity.ok(priceService.findByType(type));
     }
@@ -64,12 +64,12 @@ public class PriceController {
         return ResponseEntity.ok(priceService.saveAll(listPrices));
     }
 
-    @RequestMapping(value = "findByValue/{value}", method = RequestMethod.POST)
+    @RequestMapping(value = "findByValue/{value}", method = RequestMethod.GET)
     public ResponseEntity<Optional<Price>> findByValue(@PathVariable("value") Double value) {
         return ResponseEntity.ok(priceService.findByValue(value));
     }
 
-    @RequestMapping(value = "findById/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "findById/{id}", method = RequestMethod.GET)
     public ResponseEntity<Optional<Price>> findById(@PathVariable("id") UUID id) {
         return ResponseEntity.ok(priceService.findById(id));
     }
