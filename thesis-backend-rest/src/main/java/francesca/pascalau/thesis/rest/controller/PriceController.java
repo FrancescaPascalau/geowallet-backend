@@ -56,7 +56,8 @@ public class PriceController {
 
     @RequestMapping(value = "findByType/{type}", method = RequestMethod.GET)
     public ResponseEntity<Optional<Price>> findBy(@PathVariable("type") String type) {
-        return ResponseEntity.ok(priceService.findByType(type));
+        String typeWithSpaces = type.replaceAll("-", " ");
+        return ResponseEntity.ok(priceService.findByType(typeWithSpaces));
     }
 
     @RequestMapping(value = "saveAll", method = RequestMethod.POST)

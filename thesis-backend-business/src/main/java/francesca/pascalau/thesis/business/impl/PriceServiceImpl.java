@@ -60,9 +60,7 @@ public class PriceServiceImpl implements PriceService {
     }
 
     public Optional<Price> findByType(String type) {
-        Price price = new Price(null, type, null);
-        Example<Price> prices = Example.of(price);
-        return priceRepository.findOne(prices);
+        return priceRepository.findOneByTypeIgnoreCase(type);
     }
 
     public Optional<Price> findByValue(Double value) {
