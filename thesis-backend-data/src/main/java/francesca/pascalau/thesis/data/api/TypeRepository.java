@@ -1,6 +1,6 @@
 package francesca.pascalau.thesis.data.api;
 
-import francesca.pascalau.thesis.data.entity.Price;
+import francesca.pascalau.thesis.data.entity.Type;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface PriceRepository extends JpaRepository<Price, UUID> {
+public interface TypeRepository extends JpaRepository<Type, UUID> {
 
-    Optional<Price> findOneByTypeIgnoreCase(String type);
+    Optional<Type> findOneByDescriptionIgnoreCase(String type);
 }

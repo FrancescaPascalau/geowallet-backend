@@ -4,26 +4,26 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(schema = "public", name = "`PRICES`")
-public class Price {
+@Table(schema = "public", name = "`TYPES`")
+public class Type {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_PRICE")
+    @Column(name = "ID_TYPE")
     private UUID id;
 
-    @Column(name = "TYPE")
-    private String type;
+    @Column(name = "DESCRIPTION")
+    private String description;
 
     @Column(name = "VALUE")
     private Double value;
 
-    public Price() {
+    public Type() {
     }
 
-    public Price(UUID id, String type, Double value) {
+    public Type(UUID id, String description, Double value) {
         this.id = id;
-        this.type = type;
+        this.description = description;
         this.value = value;
     }
 
@@ -35,12 +35,12 @@ public class Price {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getDescription() {
+        return description;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Double getValue() {
@@ -53,9 +53,9 @@ public class Price {
 
     @Override
     public String toString() {
-        return "Price{" +
+        return "Type{" +
                 "id =" + id +
-                ", type =" + type +
+                ", description =" + description +
                 ", value =" + value +
                 '}';
     }

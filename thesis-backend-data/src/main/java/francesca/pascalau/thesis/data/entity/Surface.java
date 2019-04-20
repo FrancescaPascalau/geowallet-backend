@@ -19,12 +19,15 @@ public class Surface implements Serializable {
     @Column(name = "AREA", precision = 19, scale = 7)
     private BigDecimal area;
 
+    @Column(name = "PRICE", precision = 19, scale = 7)
+    private BigDecimal price;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "surface")
     private Set<Coordinate> coordinates;
 
-    @ManyToOne(targetEntity = Price.class)
-    @JoinColumn(name = "ID_PRICE", referencedColumnName = "ID_PRICE")
-    private Price price;
+    @ManyToOne(targetEntity = Type.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_TYPE", referencedColumnName = "ID_TYPE")
+    private Type type;
 
     public Surface() {
     }
@@ -51,6 +54,14 @@ public class Surface implements Serializable {
         this.area = area;
     }
 
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
     public Set<Coordinate> getCoordinates() {
         return coordinates;
     }
@@ -60,12 +71,12 @@ public class Surface implements Serializable {
         this.coordinates = coordinates;
     }
 
-    public Price getPrice() {
-        return price;
+    public Type getType() {
+        return type;
     }
 
-    public void setPrice(Price price) {
-        this.price = price;
+    public void setType(Type type) {
+        this.type = type;
     }
 
     @Override
@@ -74,6 +85,7 @@ public class Surface implements Serializable {
                 "idSurface=" + idSurface +
                 ", area=" + area +
                 ", price=" + price +
+                ", type=" + type +
                 '}';
     }
 }
