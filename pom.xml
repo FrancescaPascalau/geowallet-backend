@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
-    <name>Area and Price Determination</name>
+    <name>GeoWallet</name>
     <description>This is the parent project for the Data, Business and Rest modules.</description>
 
     <parent>
